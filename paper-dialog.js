@@ -1,4 +1,10 @@
-<!--
+import '../polymer/polymer.js';
+import { NeonAnimationRunnerBehavior } from '../neon-animation/neon-animation-runner-behavior.js';
+import { PaperDialogBehavior } from '../paper-dialog-behavior/paper-dialog-behavior.js';
+import '../paper-dialog-behavior/paper-dialog-shared-styles.js';
+import { Polymer } from '../polymer/lib/legacy/polymer-fn.js';
+import { html } from '../polymer/lib/utils/html-tag.js';
+/**
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -6,13 +12,8 @@ The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
 The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../neon-animation/neon-animation-runner-behavior.html">
-<link rel="import" href="../paper-dialog-behavior/paper-dialog-behavior.html">
-<link rel="import" href="../paper-dialog-behavior/paper-dialog-shared-styles.html">
-<!--
+*/
+/**
 Material design: [Dialogs](https://www.google.com/design/spec/components/dialogs.html)
 
 `<paper-dialog>` is a dialog with Material Design styling and optional animations when it is
@@ -66,22 +67,18 @@ element.
 @element paper-dialog
 @hero hero.svg
 @demo demo/index.html
--->
-
-<dom-module id="paper-dialog">
-  <template>
+*/
+Polymer({
+  _template: html`
     <style include="paper-dialog-shared-styles"></style>
     <slot></slot>
-  </template>
-</dom-module>
+`,
 
-<script>
-Polymer({
   is: 'paper-dialog',
 
   behaviors: [
-    Polymer.PaperDialogBehavior,
-    Polymer.NeonAnimationRunnerBehavior
+    PaperDialogBehavior,
+    NeonAnimationRunnerBehavior
   ],
 
   listeners: {
@@ -106,4 +103,3 @@ Polymer({
     }
   }
 });
-</script>
